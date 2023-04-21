@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <title>My Flask App</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+  </head>
+  <body>
+    <h1>Edit data.csv:</h1>
+    <form method="post" action="{{ url_for('edit_data') }}">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in data %}
+          <tr>
+            <td><input type="text" name="data[{{ loop.index0 }}][0]" value="{{ row[0] }}"></td>
+            <td><input type="email" name="data[{{ loop.index0 }}][1]" value="{{ row[1] }}"></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <p>
+        <input type="submit" value="Save">
+      </p>
+    </form>
+  </body>
+</html>

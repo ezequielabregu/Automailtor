@@ -1,0 +1,102 @@
+/* Resetting default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Setting Calibri font for the whole page */
+body {
+    font-family: Calibri, sans-serif;
+}
+
+/* Styling the form */
+form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+label {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"] {
+    padding: 5px; /* increased padding on left and right sides */
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+/* Styling the buttons */
+.button {
+    display: inline-block;
+    width: 100%;
+    padding: 8px 12px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+    background-color: #007bff;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.button:hover {
+    background-color: #0062cc;
+}
+
+.button1 {
+    background-color: #40a6ff;
+}
+
+.button2 {
+    background-color: #28a745;
+}
+
+.button3 {
+    background-color: #dc3545;
+}
+
+.button4 {
+    background-color: #8668ff;
+}
+
+.button5 {
+    background-color: #17a2b8;
+}
+
+/* Styling the columns */
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.column {
+    flex-basis: 48%;
+}
+
+/* Styling the table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}

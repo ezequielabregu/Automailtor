@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Automailtor</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+
+  </head>
+  <body>
+    <div class="row"> 
+        <div class="column">
+    <h1 >Automailtor</h1>
+    <br>
+    {% if error %}
+    <p style="color: red">{{ error }}</p>
+    {% endif %}
+
+    <form method="post" action="{{ url_for('submit_form') }}">
+      <p>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+      </p>
+      <p>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+      </p>
+      <p>
+        <input class="button button2" type="submit" value="Add contact">
+      </p>
+    </form>
+      <br> <br>
+      <form action="/send_emails" method="post">
+        <button class="button button3" type="submit" onclick="sending()">SEND EMAILS</button>
+        <span id="status"></span>
+      </form>
+
+      <form action="{{ url_for('edit_file') }}" method="GET">
+        <button class="button button1"  type="submit">Edit Email</button>
+      </form>
+      
+      <form action="{{ url_for('restart') }}" method="GET">
+        <button class="button button5"  type="submit">Clean email list</button>
+      </form>    
+      <br> <br>
+      <p><b> Import CSV</b></p>
+      <br>
+      <form action = "/upload" method = "POST" enctype = "multipart/form-data">
+          <input class="button button4" class="file" type = "file" name = "file"/>
+          <button class="button button4" onclick="document.getElementById('submitFile').click()">Subir CSV</button>
+          <input class="button button4" id="submitFile" type = "submit" style="visibility:hidden;"/>
+      </form>   
+
+    </div>
+      <br>     
+    <div class="column">
+      <h2> Email list </h2>
+      <table id="demo">
+        {% for row in csv %}
+          <tr>
+          {% for col in row %}
+          <td>{{ col }}</td>
+          {% endfor %}
+          </tr>
+        {% endfor %}
+        </table>
+    </div>
+    
+    <script>
+        function sending() {
+          const status = document.getElementById("status");
+          status.innerHTML = "Enviando lista de emails...";
+        }
+      </script>
+  
+
+  </body>
+</html>
