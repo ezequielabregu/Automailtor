@@ -59,6 +59,7 @@ Run the app:
 ```bash
 python app.py
 ```
+
 Web browser address:
 
 `127.0.0.1:5000`
