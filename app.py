@@ -3,6 +3,7 @@ from flask import Flask, render_template, request, redirect, url_for
 import csv, smtplib, ssl
 import os
 from datetime import datetime
+from credentials import sender, password
 
 app = Flask(__name__)
 
@@ -69,9 +70,6 @@ def upload():
 
 @app.route('/send_emails', methods=['POST'])
 def send_emails():
-
-    sender = "eabregu.dev@gmail.com"
-    password = "wbxjwtzkbuqbcfke"  # input("Type your password and press enter: ")
 
     context = ssl.create_default_context()
     with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
